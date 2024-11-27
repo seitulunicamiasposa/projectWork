@@ -25,6 +25,7 @@ async def get_machinery(id_macchinario: str):
 async def create_machinery(id_impianto: str, macchinario: Macchinari):
     macchinario.plant_id = id_impianto
     response = machinery_collection.insert_one(macchinario.model_dump())
+    #comando suggeritoci da Donato per aggiungere il macchinario all'impianto
     plant_collection.update_one({"_id": ObjectId(id_impianto)}, 
                                 {"$push": {"machinery": str(response.inserted_id)}})
     return {"_id": toString(response.inserted_id)}

@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from handler.autenticazione import router as autenticazione_router
 from handler.impianti import router as impianti_router
 from handler.macchinari import router as macchinari_router
+#comando suggeritoci da Donato
 from fastapi.middleware.cors import CORSMiddleware
 
 app = FastAPI(  
@@ -14,6 +15,7 @@ app = FastAPI(
 
 )
 
+#comando suggeritoci da Donato 
 origins = ["*"]
 app.add_middleware(
     CORSMiddleware,
